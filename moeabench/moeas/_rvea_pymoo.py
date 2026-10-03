@@ -16,7 +16,7 @@ class RVEA_pymoo(BasePymoo):
     def evaluation(self):
         """Standard moeabench evaluation entry point."""
         ref_dirs = get_reference_directions("energy", self.M, self.population, seed=self.seed)
-        mutation = PolynomialMutation(prob=1/self.Nvar, eta=20)
+        mutation = PolynomialMutation(prob=1.0, prob_var=1/self.Nvar, eta=20) 
         crossover = SBX(prob=1.0, eta=15)
         
         algorithm = RVEA(ref_dirs, pop_size=self.population, 

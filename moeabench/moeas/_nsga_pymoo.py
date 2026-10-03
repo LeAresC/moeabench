@@ -45,7 +45,7 @@ class NSGA_pymoo(BasePymoo):
         ref_dirs = get_reference_directions(
             "energy", self.M, self.population, seed=effective_seed
         )
-        mutation = PolynomialMutation(prob=1/self.Nvar, eta=20)
+        mutation = PolynomialMutation(prob=1.0, prob_var=1/self.Nvar, eta=20) 
         crossover = SBX(prob=1.0, eta=15)
         
         algorithm = NSGA3(ref_dirs=ref_dirs, pop_size=self.population, 
